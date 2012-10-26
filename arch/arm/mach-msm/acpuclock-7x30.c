@@ -116,17 +116,24 @@ static struct pll pll2_tbl[] = {
  * that is implicitly met by voting for a specific minimum AXI frequency.
  * Do NOT change the AXI frequency unless you are _absoulutely_ sure you
  * know all the h/w requirements.
+ *
+ *
+ * Set 1 to enable
+ * { 1, 24576,SRC_LPXO, 0, 0,  30720000,  900, VDD_RAW(900) },
+ * Set 0 to disable
+ * { 0, 24576,SRC_LPXO, 0, 0,  30720000,  900, VDD_RAW(900) },
+ * any clock speeds in the table below
  */
 static struct clkctl_acpu_speed acpu_freq_tbl[] = {
 	{ 0, 24576,SRC_LPXO, 0, 0,  30720000,  900, VDD_RAW(900) },
 	{ 0, 61440,   PLL_3, 5, 11, 61440000,  900, VDD_RAW(900) },
 	{ 1, 122880,  PLL_3, 5, 5,  61440000,  900, VDD_RAW(900) },
-	{ 0, 184320,  PLL_3, 5, 4,  61440000,  900, VDD_RAW(900) },
+	{ 1, 184320,  PLL_3, 5, 4,  61440000,  900, VDD_RAW(900) },
 	{ 0, MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 900, VDD_RAW(900) },
 	{ 1, 245760,  PLL_3, 5, 2,  61440000,  900, VDD_RAW(900) },
 	{ 1, 368640,  PLL_3, 5, 1,  122800000, 900, VDD_RAW(900) },
-	{ 0, 460800,  PLL_1, 2, 0,  153600000, 900, VDD_RAW(900) },
-	{ 0, 576000,  PLL_1, 2, 0,  153600000, 950, VDD_RAW(950) },
+	{ 1, 460800,  PLL_1, 2, 0,  153600000, 900, VDD_RAW(900) },
+	{ 1, 576000,  PLL_1, 2, 0,  153600000, 950, VDD_RAW(950) },
 	{ 1, 652800,  PLL_1, 2, 0,  153600000, 950, VDD_RAW(950) },
 	{ 1, 768000,  PLL_1, 2, 0,  153600000, 950, VDD_RAW(950) },
 	{ 1, 806400,  PLL_2, 3, 0, UINT_MAX, 1000, VDD_RAW(1000), &pll2_tbl[0]},
