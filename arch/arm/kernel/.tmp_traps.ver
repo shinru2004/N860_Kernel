@@ -1,0 +1,6 @@
+__crc_dump_stack = 0x6b2dc060 ;
+__crc___bad_xchg = 0xf8fbb4f0 ;
+__crc___bug = 0xc27487dd ;
+__crc___readwrite_bug = 0x919029aa ;
+__crc___div0 = 0x46d3b28c ;
+__crc_abort = 0xc359fb65 ;
