@@ -162,6 +162,39 @@ config CPU_FREQ_DEFAULT_GOV_SMARTASS2
 	help
 	 Use the CPUFreq governor 'smartassV2' as default.
 
+config CPU_FREQ_DEFAULT_GOV_LAGFREE
+        bool "lagfree"
+        select CPU_FREQ_GOV_LAGFREE
+        select CPU_FREQ_GOV_PERFORMANCE
+        help
+          Use the CPUFreq governor 'lagfree' as default. This allows
+          you to get a full dynamic frequency capable system by simply
+          loading your cpufreq low-level hardware driver.
+          Be aware that not all cpufreq drivers support the lagfree
+          governor. If unsure have a look at the help section of the
+          driver. Fallback governor will be the performance governor.
+
+config CPU_FREQ_DEFAULT_GOV_SMOOTHASS
+ 	bool "smoothass"
+ 	select CPU_FREQ_GOV_SMOOTHASS
+ 	select CPU_FREQ_GOV_PERFORMANCE
+ 	help
+ 	  Use the CPUFreq governor 'smoothass' as default.
+
+config CPU_FREQ_DEFAULT_GOV_BRAZILIANWAX
+	bool "brazilianwax"
+	select CPU_FREQ_GOV_BRAZILIANWAX
+	select CPU_FREQ_GOV_PERFORMANCE
+	help
+	  Use the CPUFreq governor 'brazilianwax as default.
+
+config CPU_FREQ_DEFAULT_GOV_INTELLIDEMAND 
+	bool "intellidemand" 
+	select CPU_FREQ_GOV_INTELLIDEMAND 
+	select CPU_FREQ_GOV_PERFORMANCE 
+	help 
+	    Intelligent OnDemand Govneror based on Samsung Patched OnDemand 
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -308,6 +341,12 @@ config CPU_FREQ_GOV_INTERACTIVEX
 	tristate "'interactiveX' cpufreq policy governor"
 	help
 	  'interactiveX' - Modified version of interactive with sleep+wake code.
+
+config CPU_FREQ_GOV_INTELLIDEMAND 
+	tristate "'intellidemand' cpufreq governor" 
+	depends on CPU_FREQ 
+	help 
+	    'intellidemand' - an intelligent ondemand governor 
 
 config CPU_FREQ_GOV_SAVAGEDZEN
 	tristate "'savagedzen' cpufreq governor"
